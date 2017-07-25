@@ -1,4 +1,4 @@
-unit mrdcode;
+unit mugenresourcedecompilercode;
 
 {$mode objfpc}{$H+}
 
@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls, LazUTF8;
 
 type
 
@@ -69,12 +69,10 @@ convert_file_name:=target;
 end;
 
 function execute_program(executable:string;argument:string):Integer;
-var parametrs:string;
 var code:Integer;
 begin
-parametrs:=UTF8ToSys(argument);
 try
-code:=ExecuteProcess(executable,parametrs,[]);
+code:=ExecuteProcess(UTF8ToWinCP(executable),UTF8ToWinCP(argument),[]);
 except
 On EOSError do code:=-1;
 end;
@@ -84,7 +82,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.3';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.4';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;

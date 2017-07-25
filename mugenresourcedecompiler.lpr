@@ -1,4 +1,4 @@
-program mrd;
+program mugenresourcedecompiler;
 
 {$mode objfpc}{$H+}
 
@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, mrdcode
+  Forms, mugenresourcedecompilercode
   { you can add units after this };
 
 {$R *.res}
