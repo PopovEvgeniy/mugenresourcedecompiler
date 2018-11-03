@@ -23,7 +23,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
     procedure RadioButton2Click(Sender: TObject);
   private
@@ -32,7 +31,6 @@ type
     { public declarations }
   end;
 
-  function check_input(input:string):Boolean;
   function convert_file_name(source:string): string;
   function execute_program(executable:string;argument:string):Integer;
   procedure window_setup();
@@ -44,17 +42,6 @@ type
   var Form1: TForm1;
 
 implementation
-
-function check_input(input:string):Boolean;
-var target:Boolean;
-begin
-target:=True;
-if input='' then
-begin
-target:=False;
-end;
-check_input:=target;
-end;
 
 function convert_file_name(source:string): string;
 var target:string;
@@ -82,7 +69,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.4';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.5';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -165,6 +152,7 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
 if Form1.OpenDialog1.Execute()=True then
 begin
+Form1.Button2.Enabled:=True;
 Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
 end;
 
@@ -173,11 +161,6 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 begin
 extract_resource(Form1.LabeledEdit1.Text);
-end;
-
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
-begin
-Form1.Button2.Enabled:=check_input(Form1.LabeledEdit1.Text);
 end;
 
 procedure TForm1.RadioButton1Click(Sender: TObject);
