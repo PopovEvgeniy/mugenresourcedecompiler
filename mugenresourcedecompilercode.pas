@@ -69,7 +69,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.6';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.7';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -117,7 +117,7 @@ end;
 procedure extract_resource(target:string);
 var host,argument:string;
 var index:Integer;
-var message:array[0..4] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant allocate memory','Invalid format');
+var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
 begin
 host:=ExtractFilePath(Application.ExeName)+'sffdecompiler';
 if Form1.RadioButton2.Checked=True then
