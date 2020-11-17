@@ -20,7 +20,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="64\mugenresourcedecompiler"/>
+            <Filename Value="mugenresourcedecompiler64"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -84,7 +84,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="32\mugenresourcedecompiler"/>
+      <Filename Value="mugenresourcedecompiler"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
