@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls, LazUTF8;
+  ExtCtrls, StdCtrls;
 
 type
 
@@ -61,7 +61,7 @@ function execute_program(executable:string;argument:string):Integer;
 var code:Integer;
 begin
  try
-  code:=ExecuteProcess(UTF8ToWinCP(executable),UTF8ToWinCP(argument),[]);
+  code:=ExecuteProcess(executable,argument,[]);
  except
   On EOSError do code:=-1;
  end;
@@ -71,7 +71,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.8';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.9';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;

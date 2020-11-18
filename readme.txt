@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.8.8
+                      Version 1.8.9
 
            This software made by Popov Evgeniy Alekseyevich
 
@@ -39,3 +39,4 @@ Change log
 1.8.5 - Small changes
 1.8.6 - 1.8.7 - Program was adapted for new version of SFF DECOMPILER and SND EXTRACT
 1.8.8 - Small changes
+1.8.9 - Small bug was fixed
