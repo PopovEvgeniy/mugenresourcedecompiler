@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.8.9
+                      Version 1.9
 
            This software made by Popov Evgeniy Alekseyevich
 
@@ -25,7 +25,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code is included in source.zip archive.
-It can be compiled under Lazarus 2.0.10 or higher.
+It can be compiled under Lazarus 2.2 or higher.
 
 Change log
 
@@ -40,3 +40,4 @@ Change log
 1.8.6 - 1.8.7 - Program was adapted for new version of SFF DECOMPILER and SND EXTRACT
 1.8.8 - Small changes
 1.8.9 - Small bug was fixed
+1.9 - Small changes

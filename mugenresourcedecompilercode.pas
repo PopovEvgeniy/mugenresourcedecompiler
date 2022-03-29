@@ -51,8 +51,7 @@ begin
  target:=source;
  if Pos(' ',source)>0 then
  begin
-  target:='"';
-  target:=target+source+'"';
+  target:='"'+target+source+'"';
  end;
  convert_file_name:=target;
 end;
@@ -71,7 +70,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.8.9';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -117,10 +116,11 @@ begin
 end;
 
 procedure extract_resource(target:string);
-var host,argument:string;
+var host,argument,status:string;
 var index:Integer;
 var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
 begin
+ status:='Can not execute a external program';
  host:=ExtractFilePath(Application.ExeName)+'sffdecompiler';
  if Form1.RadioButton2.Checked=True then
  begin
@@ -128,15 +128,11 @@ begin
  end;
  argument:=convert_file_name(target);
  index:=execute_program(host,argument);
- if index=-1 then
+ if index>0 then
  begin
-  ShowMessage('Can not execute a external program');
- end
- else
- begin
-  ShowMessage(message[index]);
+  status:=message[index];
  end;
-
+ ShowMessage(status);
 end;
 
 { TForm1 }
