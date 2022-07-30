@@ -33,14 +33,6 @@ type
     { public declarations }
   end;
 
-  function convert_file_name(source:string): string;
-  function execute_program(executable:string;argument:string):Integer;
-  procedure window_setup();
-  procedure interface_setup();
-  procedure set_graphic_target();
-  procedure set_sound_target();
-  procedure setup();
-  procedure extract_resource(target:string);
   var Form1: TForm1;
 
 implementation
@@ -62,7 +54,7 @@ begin
  try
   code:=ExecuteProcess(executable,argument,[]);
  except
-  On EOSError do code:=-1;
+  code:=-1;
  end;
  execute_program:=code;
 end;
@@ -70,7 +62,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.1';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
