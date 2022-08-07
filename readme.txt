@@ -1,13 +1,13 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.9.1
+                      Version 1.9.1.1
 
            This software made by Popov Evgeniy Alekseyevich
 
 System requirement
 
-Operation system: Windows 2000 or higher for 32 bit system
-Operation system: Windows Vista or higher for 64 bit system
+Windows 2000 or higher for 32-bit system
+Windows Vista or higher for 64-bit system
 
 License
 
@@ -41,3 +41,4 @@ Change log
 1.8.8 - Small changes
 1.8.9 - Small bug fixed
 1.9 - 1.9.1 - Small changes
+1.9.1.1 - Documentation updated.
