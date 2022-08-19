@@ -62,7 +62,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.1';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.2';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -75,11 +75,15 @@ begin
  Form1.LabeledEdit1.LabelPosition:=lpLeft;
  Form1.LabeledEdit1.Enabled:=False;
  Form1.RadioButton1.Checked:=True;
+ Form1.LabeledEdit1.Text:='';
+end;
+
+procedure language_setup();
+begin
  Form1.Button1.Caption:='Open';
  Form1.Button2.Caption:='Extract';
  Form1.Label1.Caption:='Target:';
  Form1.LabeledEdit1.Caption:='File';
- Form1.LabeledEdit1.Text:='';
  Form1.RadioButton1.Caption:='Graphic';
  Form1.RadioButton2.Caption:='Sound';
 end;
@@ -104,6 +108,7 @@ procedure setup();
 begin
  window_setup();
  interface_setup();
+ language_setup();
  set_graphic_target();
 end;
 
@@ -112,7 +117,7 @@ var host,argument,status:string;
 var index:Integer;
 var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
 begin
- status:='Can not execute a external program';
+ status:='Can not execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'sffdecompiler';
  if Form1.RadioButton2.Checked=True then
  begin
