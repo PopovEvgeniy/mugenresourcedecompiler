@@ -5,8 +5,8 @@ unit mugenresourcedecompilercode;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls;
+  Classes, SysUtils,Forms, Controls, Dialogs,
+  ExtCtrls, StdCtrls, LazFileUtils;
 
 type
 
@@ -37,18 +37,18 @@ type
 
 implementation
 
-function convert_file_name(source:string): string;
+function convert_file_name(const source:string): string;
 var target:string;
 begin
  target:=source;
  if Pos(' ',source)>0 then
  begin
-  target:='"'+target+source+'"';
+  target:='"'+source+'"';
  end;
  convert_file_name:=target;
 end;
 
-function execute_program(executable:string;argument:string):Integer;
+function execute_program(const executable:string;const argument:string):Integer;
 var code:Integer;
 begin
  try
@@ -59,10 +59,29 @@ begin
  execute_program:=code;
 end;
 
+procedure extract_resource(const target:string);
+var host,status:string;
+var index:Integer;
+var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
+begin
+ status:='Can not execute an external program';
+ host:=ExtractFilePath(Application.ExeName)+'sffdecompiler.exe';
+ if Form1.RadioButton2.Checked=True then
+ begin
+  host:=ExtractFilePath(Application.ExeName)+'sndextract.exe';
+ end;
+ index:=execute_program(host,convert_file_name(target));
+ if index>0 then
+ begin
+  status:=message[index];
+ end;
+ ShowMessage(status);
+end;
+
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.2';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.3';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -110,26 +129,6 @@ begin
  interface_setup();
  language_setup();
  set_graphic_target();
-end;
-
-procedure extract_resource(target:string);
-var host,argument,status:string;
-var index:Integer;
-var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
-begin
- status:='Can not execute an external program';
- host:=ExtractFilePath(Application.ExeName)+'sffdecompiler';
- if Form1.RadioButton2.Checked=True then
- begin
-  host:=ExtractFilePath(Application.ExeName)+'sndextract';
- end;
- argument:=convert_file_name(target);
- index:=execute_program(host,argument);
- if index>0 then
- begin
-  status:=message[index];
- end;
- ShowMessage(status);
 end;
 
 { TForm1 }

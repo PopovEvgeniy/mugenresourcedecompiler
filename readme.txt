@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.9.2
+                      Version 1.9.3
 
            This software made by Popov Evgeniy Alekseyevich
 
@@ -25,7 +25,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code included in source.zip archive.
-It can be compiled under Lazarus 2.2.2 or higher.
+It can be compiled under Lazarus 2.2.6 or higher.
 
 Change log
 
@@ -42,4 +42,4 @@ Change log
 1.8.9 - Small bug fixed.
 1.9 - 1.9.1 - Small changes.
 1.9.1.1 - Documentation updated.
-1.9.2 - Small changes.
+1.9.2 - 1.9.3 - Small changes.
