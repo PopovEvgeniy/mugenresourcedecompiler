@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.9.3
+                      Version 1.9.4
 
            This software made by Popov Evgeniy Alekseyevich
 
@@ -42,4 +42,4 @@ Change log
 1.8.9 - Small bug fixed.
 1.9 - 1.9.1 - Small changes.
 1.9.1.1 - Documentation updated.
-1.9.2 - 1.9.3 - Small changes.
+1.9.2 - 1.9.4 - Small changes.
