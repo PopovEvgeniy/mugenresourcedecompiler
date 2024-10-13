@@ -61,7 +61,7 @@ end;
 procedure extract_resource(const target:string);
 var host,status:string;
 var index:Integer;
-var message:array[0..5] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant jump to target offset','Cant allocate memory','Invalid format');
+var message:array[0..5] of string=('Operation was successfully completed','Cant open the input file','Cant create the output file','Cant jump to the target offset','Cant allocate memory','Invalid format');
 begin
  status:='Can not execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'sffdecompiler.exe';
@@ -80,7 +80,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.4';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.5';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -102,14 +102,14 @@ begin
  Form1.Button2.Caption:='Extract';
  Form1.Label1.Caption:='Target:';
  Form1.LabeledEdit1.Caption:='File';
- Form1.RadioButton1.Caption:='Graphic';
+ Form1.RadioButton1.Caption:='Graphics';
  Form1.RadioButton2.Caption:='Sound';
 end;
 
 procedure set_graphic_target();
 begin
- Form1.OpenDialog1.Title:='Open a graphic container';
- Form1.OpenDialog1.Filter:='Mugen graphic container|*.sff';
+ Form1.OpenDialog1.Title:='Open a graphics container';
+ Form1.OpenDialog1.Filter:='Mugen graphics container|*.sff';
  Form1.OpenDialog1.FileName:='*.sff';
  Form1.OpenDialog1.DefaultExt:='*.sff';
 end;
