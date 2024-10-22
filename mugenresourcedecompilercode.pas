@@ -80,7 +80,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.5';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.6';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
@@ -101,7 +101,7 @@ begin
  Form1.Button1.Caption:='Open';
  Form1.Button2.Caption:='Extract';
  Form1.Label1.Caption:='Target:';
- Form1.LabeledEdit1.Caption:='File';
+ Form1.LabeledEdit1.EditLabel.Caption:='File';
  Form1.RadioButton1.Caption:='Graphics';
  Form1.RadioButton2.Caption:='Sound';
 end;
