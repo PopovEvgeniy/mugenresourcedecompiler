@@ -80,7 +80,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.6';
+ Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.7';
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
  Form1.BorderStyle:=bsDialog;
