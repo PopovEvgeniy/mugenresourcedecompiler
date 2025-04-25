@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 1.9.7
+                      Version 2.0
 
            This software was made by Popov Evgeniy Alekseyevich
 
@@ -16,7 +16,7 @@ This program is distributed under GNU GENERAL PUBLIC LICENSE.
 Program description
 
 MUGEN RESOURCE DECOMPILER is a graphic shell for SFF DECOMPILER and SND EXTRACT.
-Put the executable files of these tools to the MUGEN RESOURCE DECOMPILER directory before the first start.
+Put the executable files of these tools in the MUGEN RESOURCE DECOMPILER directory before the first start.
 
 Contact
 
@@ -25,7 +25,7 @@ You can send me a letter at tuzik87@inbox.ru.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC1 or higher.
+It can be compiled under Lazarus 4.0 RC3 or higher.
 
 Change log
 
@@ -49,3 +49,5 @@ Change log
 1.9.6: The small changes.
 1.9.6.1: The documentation has been updated.
 1.9.7: The source code was recompiled under Lazarus 4.0 RC1.
+1.9.8: The source code was recompiled under Lazarus 4.0 RC3.
+1.9.9-2.0: The small changes.

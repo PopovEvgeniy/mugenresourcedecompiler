@@ -6,33 +6,33 @@ interface
 
 uses
   Classes, SysUtils,Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls, LazFileUtils;
+  ExtCtrls, StdCtrls;
 
 type
 
-  { TForm1 }
+  { TMainWindow }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Label1: TLabel;
-    LabeledEdit1: TLabeledEdit;
-    OpenDialog1: TOpenDialog;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+  TMainWindow = class(TForm)
+    OpenButton: TButton;
+    ExtractButton: TButton;
+    TargetPanel: TLabel;
+    FileField: TLabeledEdit;
+    OpenDialog: TOpenDialog;
+    GraphicRadioButton: TRadioButton;
+    SoundRadioButton: TRadioButton;
+    procedure OpenButtonClick(Sender: TObject);
+    procedure ExtractButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
-    procedure RadioButton1Click(Sender: TObject);
-    procedure RadioButton2Click(Sender: TObject);
+    procedure FileFieldChange(Sender: TObject);
+    procedure GraphicRadioButtonClick(Sender: TObject);
+    procedure SoundRadioButtonClick(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
   end;
 
-  var Form1: TForm1;
+  var MainWindow: TMainWindow;
 
 implementation
 
@@ -61,11 +61,11 @@ end;
 procedure extract_resource(const target:string);
 var host,status:string;
 var index:Integer;
-var message:array[0..5] of string=('Operation was successfully completed','Cant open the input file','Cant create the output file','Cant jump to the target offset','Cant allocate memory','Invalid format');
+var message:array[0..5] of string=('The operation was successfully completed','Cant open the input file','Cant create the output file','Cant jump to the target offset','Cant allocate memory','Invalid format');
 begin
  status:='Can not execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'sffdecompiler.exe';
- if Form1.RadioButton2.Checked=True then
+ if ExtractFileExt(target)='.snd' then
  begin
   host:=ExtractFilePath(Application.ExeName)+'sndextract.exe';
  end;
@@ -80,46 +80,46 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Form1.Caption:='MUGEN RESOURCE DECOMPILER 1.9.7';
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
- Form1.BorderStyle:=bsDialog;
+ MainWindow.Caption:='MUGEN RESOURCE DECOMPILER 2.0';
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
+ MainWindow.BorderStyle:=bsDialog;
 end;
 
 procedure interface_setup();
 begin
- Form1.Button1.ShowHint:=False;
- Form1.Button2.ShowHint:=Form1.Button1.ShowHint;
- Form1.LabeledEdit1.LabelPosition:=lpLeft;
- Form1.LabeledEdit1.Enabled:=False;
- Form1.RadioButton1.Checked:=True;
- Form1.LabeledEdit1.Text:='';
+ MainWindow.OpenButton.ShowHint:=False;
+ MainWindow.ExtractButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.FileField.LabelPosition:=lpLeft;
+ MainWindow.FileField.Enabled:=False;
+ MainWindow.GraphicRadioButton.Checked:=True;
+ MainWindow.FileField.Text:='';
 end;
 
 procedure language_setup();
 begin
- Form1.Button1.Caption:='Open';
- Form1.Button2.Caption:='Extract';
- Form1.Label1.Caption:='Target:';
- Form1.LabeledEdit1.EditLabel.Caption:='File';
- Form1.RadioButton1.Caption:='Graphics';
- Form1.RadioButton2.Caption:='Sound';
+ MainWindow.OpenButton.Caption:='Open';
+ MainWindow.ExtractButton.Caption:='Extract';
+ MainWindow.TargetPanel.Caption:='Target:';
+ MainWindow.FileField.EditLabel.Caption:='File';
+ MainWindow.GraphicRadioButton.Caption:='Graphics';
+ MainWindow.SoundRadioButton.Caption:='Sound';
 end;
 
 procedure set_graphic_target();
 begin
- Form1.OpenDialog1.Title:='Open a graphics container';
- Form1.OpenDialog1.Filter:='Mugen graphics container|*.sff';
- Form1.OpenDialog1.FileName:='*.sff';
- Form1.OpenDialog1.DefaultExt:='*.sff';
+ MainWindow.OpenDialog.Title:='Open a graphics container';
+ MainWindow.OpenDialog.Filter:='Mugen graphics container|*.sff';
+ MainWindow.OpenDialog.FileName:='*.sff';
+ MainWindow.OpenDialog.DefaultExt:='*.sff';
 end;
 
 procedure set_sound_target();
 begin
- Form1.OpenDialog1.Title:='Open a sound container';
- Form1.OpenDialog1.Filter:='Mugen sound container|*.snd';
- Form1.OpenDialog1.FileName:='*.snd';
- Form1.OpenDialog1.DefaultExt:='*.snd';
+ MainWindow.OpenDialog.Title:='Open a sound container';
+ MainWindow.OpenDialog.Filter:='Mugen sound container|*.snd';
+ MainWindow.OpenDialog.FileName:='*.snd';
+ MainWindow.OpenDialog.DefaultExt:='*.snd';
 end;
 
 procedure setup();
@@ -130,34 +130,34 @@ begin
  set_graphic_target();
 end;
 
-{ TForm1 }
+{ TMainWindow }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainWindow.FormCreate(Sender: TObject);
 begin
  setup();
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
+procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- Form1.Button2.Enabled:=Form1.LabeledEdit1.Text<>'';
+ MainWindow.ExtractButton.Enabled:=MainWindow.FileField.Text<>'';
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
- if Form1.OpenDialog1.Execute()=True then Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
+ if MainWindow.OpenDialog.Execute()=True then MainWindow.FileField.Text:=MainWindow.OpenDialog.FileName;
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TMainWindow.ExtractButtonClick(Sender: TObject);
 begin
- extract_resource(Form1.LabeledEdit1.Text);
+ extract_resource(MainWindow.FileField.Text);
 end;
 
-procedure TForm1.RadioButton1Click(Sender: TObject);
+procedure TMainWindow.GraphicRadioButtonClick(Sender: TObject);
 begin
  set_graphic_target();
 end;
 
-procedure TForm1.RadioButton2Click(Sender: TObject);
+procedure TMainWindow.SoundRadioButtonClick(Sender: TObject);
 begin
  set_sound_target();
 end;
