@@ -15,17 +15,12 @@ type
   TMainWindow = class(TForm)
     OpenButton: TButton;
     ExtractButton: TButton;
-    TargetPanel: TLabel;
     FileField: TLabeledEdit;
     OpenDialog: TOpenDialog;
-    GraphicRadioButton: TRadioButton;
-    SoundRadioButton: TRadioButton;
     procedure OpenButtonClick(Sender: TObject);
     procedure ExtractButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FileFieldChange(Sender: TObject);
-    procedure GraphicRadioButtonClick(Sender: TObject);
-    procedure SoundRadioButtonClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -80,7 +75,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- MainWindow.Caption:='MUGEN RESOURCE DECOMPILER 2.0';
+ MainWindow.Caption:='MUGEN RESOURCE DECOMPILER 2.0.2';
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;
  MainWindow.BorderStyle:=bsDialog;
@@ -92,7 +87,6 @@ begin
  MainWindow.ExtractButton.ShowHint:=MainWindow.OpenButton.ShowHint;
  MainWindow.FileField.LabelPosition:=lpLeft;
  MainWindow.FileField.Enabled:=False;
- MainWindow.GraphicRadioButton.Checked:=True;
  MainWindow.FileField.Text:='';
 end;
 
@@ -100,26 +94,15 @@ procedure language_setup();
 begin
  MainWindow.OpenButton.Caption:='Open';
  MainWindow.ExtractButton.Caption:='Extract';
- MainWindow.TargetPanel.Caption:='Target:';
  MainWindow.FileField.EditLabel.Caption:='File';
- MainWindow.GraphicRadioButton.Caption:='Graphics';
- MainWindow.SoundRadioButton.Caption:='Sound';
+  MainWindow.OpenDialog.Title:='Open a resource container';
 end;
 
-procedure set_graphic_target();
+procedure dialog_setup();
 begin
- MainWindow.OpenDialog.Title:='Open a graphics container';
- MainWindow.OpenDialog.Filter:='Mugen graphics container|*.sff';
- MainWindow.OpenDialog.FileName:='*.sff';
+ MainWindow.OpenDialog.Filter:='All suported files|*.sff; *.snd';
+ MainWindow.OpenDialog.FileName:='*.sff; *.snd';
  MainWindow.OpenDialog.DefaultExt:='*.sff';
-end;
-
-procedure set_sound_target();
-begin
- MainWindow.OpenDialog.Title:='Open a sound container';
- MainWindow.OpenDialog.Filter:='Mugen sound container|*.snd';
- MainWindow.OpenDialog.FileName:='*.snd';
- MainWindow.OpenDialog.DefaultExt:='*.snd';
 end;
 
 procedure setup();
@@ -127,7 +110,7 @@ begin
  window_setup();
  interface_setup();
  language_setup();
- set_graphic_target();
+ dialog_setup();
 end;
 
 { TMainWindow }
@@ -150,16 +133,6 @@ end;
 procedure TMainWindow.ExtractButtonClick(Sender: TObject);
 begin
  extract_resource(MainWindow.FileField.Text);
-end;
-
-procedure TMainWindow.GraphicRadioButtonClick(Sender: TObject);
-begin
- set_graphic_target();
-end;
-
-procedure TMainWindow.SoundRadioButtonClick(Sender: TObject);
-begin
- set_sound_target();
 end;
 
 {$R *.lfm}
