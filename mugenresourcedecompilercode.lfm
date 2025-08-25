@@ -6,6 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'MUGEN RESOURCE DECOMPILER'
   ClientHeight = 93
   ClientWidth = 496
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object FileField: TLabeledEdit
     Left = 40
