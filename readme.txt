@@ -1,31 +1,31 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 2.0.3
+                      Version 2.0.3.1
 
            This software was made by Popov Evgeniy Alekseyevich
 
-System requirements
+System requirements.
 
 Windows 2000 or higher for 32-bit systems
 Windows Vista or higher for 64-bit systems
 
-License
-
-This program is distributed under the GNU GENERAL PUBLIC LICENSE.
-
-Program description
+The program description.
 
 MUGEN RESOURCE DECOMPILER is a graphic shell for SFF DECOMPILER and SND EXTRACT.
 Put the executable files of these tools in the MUGEN RESOURCE DECOMPILER directory before the first start.
 
-About program modification
+License.
+
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
+
+The source code.
 
 The code is included in the source.zip archive.
 It can be compiled under Lazarus 4.2 or higher.
 
-Change log
+Version history.
 
-1.0: Initial version.
+1.0: The initial version.
 1.1-1.1.9: The experimental unstable builds.
 1.2-1.8.1: The stable branch.
 1.8.2: The program was totally rewritten.
@@ -51,3 +51,4 @@ Change log
 2.0.2: The small changes.
 2.0.2.1: The documentation has been updated.
 2.0.3: The small changes.
+2.0.3.1: The documentation has been updated.
