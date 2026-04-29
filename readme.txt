@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 2.0.3.1
+                      Version 2.0.4
 
            This software was made by Popov Evgeniy Alekseyevich
 
@@ -21,7 +21,7 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 The source code.
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.2 or higher.
+It can be compiled under Lazarus 4.6 or higher.
 
 Version history.
 
@@ -52,3 +52,4 @@ Version history.
 2.0.2.1: The documentation has been updated.
 2.0.3: The small changes.
 2.0.3.1: The documentation has been updated.
+2.0.4: The program has been adapted to the new versions of SFF DECOMPILER and SND EXTRACT.
