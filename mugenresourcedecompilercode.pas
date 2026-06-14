@@ -1,12 +1,16 @@
 unit mugenresourcedecompilercode;
 
-{$mode objfpc}{$H+}
+{
+ This software was made by Popov Evgeniy Alekseyevich.
+ It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
+}
+
+{$mode objfpc}
+{$H+}
 
 interface
 
-uses
-  Classes, SysUtils,Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls;
+uses Classes, SysUtils,Forms, Controls, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -22,7 +26,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FileFieldChange(Sender: TObject);
   private
-    { private declarations }
+    procedure window_setup();
+    procedure interface_setup();
+    procedure language_setup();
+    procedure dialog_setup();
+    procedure setup();
   public
     { public declarations }
   end;
@@ -72,67 +80,67 @@ begin
  ShowMessage(status);
 end;
 
-procedure window_setup();
+procedure TMainWindow.window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- MainWindow.Caption:='MUGEN RESOURCE DECOMPILER 2.0.4';
- MainWindow.Font.Name:=Screen.MenuFont.Name;
- MainWindow.Font.Size:=14;
- MainWindow.BorderStyle:=bsDialog;
+ Self.Caption:='MUGEN RESOURCE DECOMPILER 2.0.5';
+ Self.Font.Name:=Screen.MenuFont.Name;
+ Self.Font.Size:=14;
+ Self.BorderStyle:=bsDialog;
 end;
 
-procedure interface_setup();
+procedure TMainWindow.interface_setup();
 begin
- MainWindow.OpenButton.ShowHint:=False;
- MainWindow.ExtractButton.ShowHint:=MainWindow.OpenButton.ShowHint;
- MainWindow.FileField.LabelPosition:=lpLeft;
- MainWindow.FileField.Enabled:=False;
- MainWindow.FileField.Text:='';
+ Self.OpenButton.ShowHint:=False;
+ Self.ExtractButton.ShowHint:=False;
+ Self.FileField.LabelPosition:=lpLeft;
+ Self.FileField.Enabled:=False;
+ Self.FileField.Text:='';
 end;
 
-procedure language_setup();
+procedure TMainWindow.language_setup();
 begin
- MainWindow.OpenButton.Caption:='Open';
- MainWindow.ExtractButton.Caption:='Extract';
- MainWindow.FileField.EditLabel.Caption:='File';
-  MainWindow.OpenDialog.Title:='Open a resource container';
+ Self.OpenButton.Caption:='Open';
+ Self.ExtractButton.Caption:='Extract';
+ Self.FileField.EditLabel.Caption:='File';
+  Self.OpenDialog.Title:='Open a resource container';
 end;
 
-procedure dialog_setup();
+procedure TMainWindow.dialog_setup();
 begin
- MainWindow.OpenDialog.Filter:='All suported files|*.sff; *.snd';
- MainWindow.OpenDialog.FileName:='*.sff; *.snd';
- MainWindow.OpenDialog.DefaultExt:='*.sff';
+ Self.OpenDialog.Filter:='All suported files|*.sff; *.snd';
+ Self.OpenDialog.FileName:='*.sff; *.snd';
+ Self.OpenDialog.DefaultExt:='*.sff';
 end;
 
-procedure setup();
+procedure TMainWindow.setup();
 begin
- window_setup();
- interface_setup();
- language_setup();
- dialog_setup();
+ Self.window_setup();
+ Self.interface_setup();
+ Self.language_setup();
+ Self.dialog_setup();
 end;
 
 { TMainWindow }
 
 procedure TMainWindow.FormCreate(Sender: TObject);
 begin
- setup();
+ Self.setup();
 end;
 
 procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- MainWindow.ExtractButton.Enabled:=MainWindow.FileField.Text<>'';
+ Self.ExtractButton.Enabled:=Self.FileField.Text<>'';
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
- if MainWindow.OpenDialog.Execute()=True then MainWindow.FileField.Text:=MainWindow.OpenDialog.FileName;
+ if Self.OpenDialog.Execute()=True then Self.FileField.Text:=Self.OpenDialog.FileName;
 end;
 
 procedure TMainWindow.ExtractButtonClick(Sender: TObject);
 begin
- extract_resource(MainWindow.FileField.Text);
+ extract_resource(Self.FileField.Text);
 end;
 
 {$R *.lfm}

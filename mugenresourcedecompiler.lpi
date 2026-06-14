@@ -39,6 +39,7 @@
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
               <UseLineInfoUnit Value="False"/>
             </Debugging>
             <LinkSmart Value="True"/>
@@ -104,6 +105,7 @@
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
+        <RunWithoutDebug Value="True"/>
         <UseLineInfoUnit Value="False"/>
       </Debugging>
       <LinkSmart Value="True"/>
