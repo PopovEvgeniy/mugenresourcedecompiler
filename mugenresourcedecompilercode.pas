@@ -64,7 +64,7 @@ end;
 procedure extract_resource(const target:string);
 var host,status:string;
 var index:Integer;
-var message:array[0..8] of string=('The operation was successfully completed','Cannot open the input file','Cannot create the output file','Cannot read data','Cannot write data','Cannot jump to the target offset','Cannot allocate memory','The invalid format','Cannot get the file size!');
+var message:array[0..9] of string=('The operation was successfully completed','Cannot open the input file','Cannot create the output file','Cannot read data','Cannot write data','Cannot get the current position','Cannot jump to the target offset','Cannot allocate memory','The invalid format','Cannot get the file size!');
 begin
  status:='Cannot execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'sffdecompiler.exe';
@@ -83,7 +83,7 @@ end;
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='MUGEN RESOURCE DECOMPILER';
- Self.Caption:='MUGEN RESOURCE DECOMPILER 2.0.7';
+ Self.Caption:='MUGEN RESOURCE DECOMPILER 2.0.8';
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
  Self.BorderStyle:=bsDialog;
