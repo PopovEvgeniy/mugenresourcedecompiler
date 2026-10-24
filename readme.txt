@@ -1,6 +1,6 @@
                  MUGEN RESOURCE DECOMPILER
                      
-                      Version 2.0.8
+                      Version 2.0.8.1
 
            This software was made by Popov Evgeniy Alekseyevich
 
@@ -35,7 +35,7 @@ Version history.
 1.8.5: The small changes.
 1.8.6-1.8.7: The program has been adapted to the new versions of SFF DECOMPILER and SND EXTRACT.
 1.8.8: The small changes.
-1.8.9: A small bug has been fixed.
+1.8.9: The small bug has been fixed.
 1.9-1.9.1: The small changes.
 1.9.1.1: The documentation has been updated.
 1.9.2-1.9.4: The small changes.
@@ -47,7 +47,7 @@ Version history.
 1.9.7: The source code was recompiled under Lazarus 4.0 RC1.
 1.9.8: The source code was recompiled under Lazarus 4.0 RC3.
 1.9.9-2.0: The small changes.
-2.0.1: The user interface has improved.
+2.0.1: The user interface has been improved.
 2.0.2: The small changes.
 2.0.2.1: The documentation has been updated.
 2.0.3: The small changes.
@@ -55,3 +55,4 @@ Version history.
 2.0.4: The program has been adapted to the new versions of SFF DECOMPILER and SND EXTRACT.
 2.0.5-2.0.6: The small changes.
 2.0.7-2.0.8: The program has been adapted to the new versions of SFF DECOMPILER and SND EXTRACT.
+2.0.8.1: The documentation has been updated.
